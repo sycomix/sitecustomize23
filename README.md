@@ -21,10 +21,12 @@ Usage:
 After sitecustomize.py is downloaded onto PYTHONPATH, you may run either of the following to install the packages:
 
 - By .tar.gz source:
-python.exe setup.py install --prefix <PYTHONPATH2 / PYTHONPATH3>
+
+_python.exe setup.py install --prefix <PYTHONPATH2 / PYTHONPATH3>_
 
 - By wheel / PyPI:
-pip<2 / 3> install <Path to Wheel file / package name> --prefix <PYTHONPATH2 / PYTHONPATH3>
+
+_pip<2 / 3> install <Path to Wheel file / package name> --prefix <PYTHONPATH2 / PYTHONPATH3>_
 
 Note: The prefix value in both scenarios should NOT contain the common path "Libs/site-packages".
 
