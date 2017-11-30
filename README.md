@@ -68,9 +68,7 @@ After sitecustomize.py is downloaded onto PYTHONPATH, you may run either of the 
 _python<Major.Minor> setup.py install --prefix <PYTHONPATH2 / PYTHONPATH3 / DEFAULTPATH>_
 
 Note for Windows user:
-You may want to optionally create a shortcut with a name python<Major.Minor> in the folder where the respective python.exe is located in order for the above command to work.
-
-Alternatively, you need to specify the exact path where the python.exe is located such as:
+You will need to specify the exact path where the python.exe is located such as:
 
 _C:\Python36\python setup.py install --prefix <PYTHONPATH2 / PYTHONPATH3 / DEFAULTPATH>_
 
