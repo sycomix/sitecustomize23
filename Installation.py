@@ -49,6 +49,8 @@ try:
 		if (sysPlatform.startswith("win")):
 			#For Windows, NEVER include the filename by providing a backslash so as to surpress prompt.
 			command = ["xcopy", '/V', '/C', '/i', '/F', '/Y', '/Z', source, str.format("{0}\\", dest)]
+		elif (sysPlatform == "darwin"):
+			command = ["cp", source, dest]
 		else:
 			command = ["cp", '-d', source, dest]
 
