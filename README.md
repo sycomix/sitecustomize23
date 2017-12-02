@@ -83,6 +83,16 @@ Note 2: Append the correct Python Major.Minor version (2.7 / 3.3 / 3.4 / 3.5 / 3
 
 This implementation does not affect the ability to install via proxy.
 
+UPDATE:
+It is known that configuring Environment Variables in Apple Darwin (OS X / macOS) is very troublesome and differs greatly across the versions. Therefore, a startup application is created in PYTHONPATH.app.zip.
+
+It is recommended for OS X / macOS users to download (and unzip) this file into any folders. Then, go to 'System Preference' -> 'User and Groups' ->  'Login Items' (For current user) and add this PYTHONPATH.app
+
+This is tested to work in recent versions of macOS including High Sierra with IDLE.
+
+Source: https://apple.stackexchange.com/questions/57385/where-are-system-environment-variables-set-in-mountain-lion?rq=1
+
+
 Motivation:
 
 I need a way to where one single folder can host the same dependency / module / packages for both Python 2 and Python 3. I have tried using --install-lib but Python may load the package from a wrong version instead and throws error.
