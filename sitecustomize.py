@@ -38,24 +38,19 @@ try:
 	if (sysPlatform == "darwin"):
 		#Apple OSX. Not expected to support Classic Mac OS 9 or below.
 		defaultPath = "/Applications/Python_Modules"
-		endPath.append("lib")
-		endPath.append(str.format("python{0}", sysVerText))
-		endPath.append("site-packages")
+		endPath.extend(("lib", str.format("python{0}", sysVerText)))
 	elif (sysPlatform.startswith("win")):
 		#Windows (Does not differentiate between NT-based such as Windows 2000 / XP and above or not).
 		drive = os.path.splitdrive(sys.executable)[0] #Determines which drive hosts booting OS.
 		defaultPath = str.format("{0}\\Python_Modules\\python{1}", drive, sysVerText)
 		endPath.append("Lib")
-		endPath.append("site-packages")
-		#Note: In Windows, Python 2 and 3 typically installed in distinct folder.
-		#However, Unix generally installs python 2 and python 3 executable in same folder.
+			#Note: In Windows, Python 2 and 3 typically installed in distinct folder.
+			#However, Unix generally installs python 2 and python 3 executable in same folder.
 	else:
 		#Other Unix including Cyginwin / Linux / FreeBSD etc.
 		defaultPath = "/opt/Python_Modules"
-		endPath.append("lib")
-		endPath.append(str.format("python{0}", sysVerText))
-		endPath.append("site-packages")
-
+		endPath.extend(("lib", str.format("python{0}", sysVerText)))
+	endPath.append("site-packages")
 	loadPath = "" #The path to load modules based on environment variable.
 	oppoPath = "" #The path where the other major version of Python Modules will be installed to.
 	envNameParent = "PYTHONPATH" #Always Case sensitive for environment variable.
@@ -82,7 +77,7 @@ try:
 	endCount = len(endPath) #To calculate number of folder levels used after prefix.
 	countDown = endCount #Countdown towards 0.
 
-	for f in range(endCount):
+	for f in range(countDown):
 		folder = endPath[f]
 		parentFolder = loadPath.split(os.sep)[(countDown * -1)] #The folder name at f level above.
 		if ((parentFolder != folder) or (is_fs_case_sensitive() and parentFolder.lower() != folder.lower())):
